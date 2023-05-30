@@ -1,4 +1,7 @@
 
+create datebase hilalao;
+./c hilalao;
+
 CREATE TABLE identity_card (
 	id_card SERIAL PRIMARY KEY,
 	card_picture VARCHAR(30) NOT NULL,
@@ -10,9 +13,10 @@ CREATE TABLE customer (
 	name VARCHAR(100) NOT NULL,
 	customer_id_card INT,
 	profile_picture VARCHAR(30) NOT NULL,
-	address VARCHAR(50) NOT NULL,
+	adress VARCHAR(50) NOT NULL,
 	phone_numbers VARCHAR(13) NOT NULL,
 	email VARCHAR(50) NOT NULL,
+	password VARCHAR(20) NOT NULL,
 	FOREIGN KEY (customer_id_card) REFERENCES identity_card(id_card)
 );
 
