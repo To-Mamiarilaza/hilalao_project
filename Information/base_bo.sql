@@ -3,13 +3,13 @@ CREATE TABLE state (
 	state_name VARCHAR(30)
 );
 
-CREATE TABLE subscribe (
-	id_subscribe SERIAL PRIMARY KEY,
+CREATE TABLE subscription (
+	id_subscription SERIAL PRIMARY KEY,
 	id_terrain INT,
 	id_state INT,
 	payment_date DATE,
-	start_subscribe DATE,
-	end_of_subscribe DATE,
+	start_subscription DATE,
+	end_of_subscription DATE,
 	price DOUBLE PRECISION,
 	FOREIGN KEY (id_terrain) REFERENCES terrain(id_terrain),
 	FOREIGN KEY (id_state) REFERENCES state(id_state)
