@@ -16,3 +16,7 @@ CREATE TABLE reservation (
 	duree INTEGER DEFAULT 1 NOT NULL,
 	FOREIGN KEY (id_user) REFERENCES users(id_user)
 );
+
+INSERT INTO users VALUES
+	(DEFAULT, 'Eric', 'Eric@gmail.com', '2007-11-29')
+;
