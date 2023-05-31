@@ -129,4 +129,15 @@ class AccountBackOffice
 
         return null;
     }
+
+    public function save(){
+        $req = "INSERT INTO account_back_office(mail,password,firstname,name,telephone_number) VALUES ('%s','%s','%s','%s',%s)";
+        $mail = $this->mail;
+        $pwd = $this->password;
+        $name = $this->name ;
+        $firstname = $this->firstname ;
+        $tel = $this->telephone_number ;
+        $req = sprintf($req,$mail,$pwd,$firstname,$name,$tel);
+        DB::insert($req);
+    }
 }

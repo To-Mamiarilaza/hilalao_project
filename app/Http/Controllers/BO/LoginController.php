@@ -32,5 +32,20 @@ class LoginController extends Controller
         // Faites ce que vous voulez avec les données récupérées
         return view('BO.resultats', ['account'=>$account]);
     }
+    
+    public function saveAll(Request $request)
+    {
+        $model = new AccountBackOffice();
+
+        $model -> setName($request->input('nom'));
+        $model ->setFirstname($request->input('prenom'));
+        $model ->setTelephoneNumber($request->input('tel'));
+        $model->setMail($request->input('mail'));
+        $model->setPassword($request->input('pwd'));
+
+        $model-> save();
+        
+        return view('BO/login');
+    }
 }
 ?>

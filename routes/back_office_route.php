@@ -23,7 +23,12 @@ Route::get('/Check', [LoginController::class,
 )->name('login');;
 
 Route::get('/Sign', function () {
+Route::get('/sign', function () {
     return view('BO/sign');
-})->name('Sign');
+})->name('view_sign');
+
+
+Route::get('/Sign', [LoginController::class,
+    'saveAll'])->name('Sign');
 
 ?>
