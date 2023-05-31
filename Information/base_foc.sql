@@ -87,8 +87,9 @@ CREATE TABLE terrain_parameter (
 
 CREATE TABLE terrain_pictures (
 	id_pictures SERIAL PRIMARY KEY,
-	value VARCHAR(60),
-	terrain INT,
+	value VARCHAR(60),						--- nom de la photo (exemple.jpg)
+	terrain INT,							--- le terrain en general
+	picture_type INT,						--- photo primaire 1, photo secondaire 0
 	Foreign Key (terrain) REFERENCES terrain(id_terrain)
 );
 

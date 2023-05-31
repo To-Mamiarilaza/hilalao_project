@@ -53,8 +53,10 @@ INSERT INTO terrain_parameter VALUES
 	('Fana-foot', 1, 1, 2, 2, 2, 2);
 
 INSERT INTO terrain_pictures VALUES
-	(DEFAULT, 'photo1.jpg', 1),
-	(DEFAULT, 'photo2.jpg', 2);
+	(DEFAULT, 'photo1.jpg', 1, 1),
+	(DEFAULT, 'photo2.jpg', 1, 0),
+	(DEFAULT, 'photo3.jpg', 2, 1),
+	(DEFAULT, 'photo4.jpg', 2, 0);
 
 INSERT INTO availability VALUES
 	(DEFAULT, 1, 1, '06:00:00', '18:00:00'),
