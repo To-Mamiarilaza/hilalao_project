@@ -1,10 +1,7 @@
---- Photo de profil
-CREATE TABLE profile_pictures (
-	id_profile_picture SERIAL PRIMARY KEY,
-	value VARCHAR(30)
-);
+create database hilalao;
+./c hilalao;
 
---- Le client 
+--Le client 
 CREATE TABLE customer (
 	id_customer SERIAL PRIMARY KEY,
 	customers_name VARCHAR(100) NOT NULL,
