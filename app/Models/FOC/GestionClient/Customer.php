@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\FOC\GestionClient;
 use Illuminate\Support\Facades\DB;
 
 class Customer
 {
     private $id_customer;
     private $name;
-    private $customer_id_card;
+    private $number_card;
     private $profile_picture;
     private $adress;
     private $phone_numbers;
     private $email;
     private $password;
 
-    public function __construct($id_customer, $name, $customer_id_card, $profile_picture, $adress, $phone_numbers, $email, $password)
+    public function __construct($id_customer, $name, $number_card, $profile_picture, $adress, $phone_numbers, $email, $password)
     {
         $this->id_customer = $id_customer;
         $this->name = $name;
-        $this->customer_id_card = $customer_id_card;
+        $this->number_card = $number_card;
         $this->profile_picture = $profile_picture;
         $this->adress = $adress;
         $this->phone_numbers = $phone_numbers;
@@ -39,7 +39,7 @@ class Customer
 
     public function getCustomer_id_card()
     {
-        return $this->customer_id_card;
+        return $this->number_card;
     }
 
     public function getProfile_picture()
@@ -71,7 +71,7 @@ class Customer
     public static function getAll()
     {
         $results = DB::select('SELECT * FROM customer');
-        $datas = [];
+        $datas = array();
         $i = 0;
         foreach ($results as $row) {
             $datas[$i] = new Customer($row->id_customer, $row->name, $row->getCustomer_id_card, $row->profile_picture, $row->adress, $row->phone_numbers, $row->email, $row->password);
@@ -82,11 +82,11 @@ class Customer
     }
 
     //Recuperer le client correspondant le id au parametre id
-    public static function getById($id)
+    public static function findById($id)
     {
         $results = DB::table('customer')->where('id_customer', $id)->first();
         
-        return new Customer($results->id_customer,$results->name, $results->customer_id_card, $results->profile_picture, $results->adress, $results->phone_numbers, $results->email, $results->password);
+        return new Customer($results->id_customer,$results->name, $results->number_card, $results->profile_picture, $results->adress, $results->phone_numbers, $results->email, $results->password);
     }
 
     //Sauvegarder un client dans la base
@@ -95,7 +95,7 @@ class Customer
         DB::table('customer')->insert([
             'id_customer' => $this->id_customer,
             'name' => $this->name,
-            'customer_id_card' => $this->customer_id_card,
+            'number_card' => $this->number_card,
             'profile_picture' => $this->profile_picture,
             'adress' => $this->adress,
             'phone_numbers' => $this->phone_numbers,
@@ -111,7 +111,7 @@ class Customer
         ->where('id_customer', $this->id_customer)
         ->update([
             'name' => $this->name, 
-            'customer_id_card' => $this->customer_id_card, 
+            'number_card' => $this->number_card, 
             'profile_picture' => $this->profile_picture, 
             'adress' => $this->adress,
             'phone_numbers' => $this->phone_numbers,
@@ -121,24 +121,26 @@ class Customer
     }
 
     //Supprimer un client par son id
-    public static function delete($id)
+    public function delete()
     {
         DB::table('customer')
-        ->where('id_customer', $id)
+        ->where('id_customer', $this->id_customer)
         ->delete();
     }
 
     public static function login($password, $email) 
     {
-        $results = DB::select("SELECT * FROM customer WHERE password = "+$password+" AND email = '"+$email+"'");
+        $req = "SELECT * FROM customer WHERE password = '%s' AND email = '%s'";
+        $req = sprintf($req,$password,$email);
+        $results = DB::select($req);
         $i = 0;
         if($results) {
             foreach ($results as $row) {
-                return new Customer($$row->id_customer,$$row->name, $$row->customer_id_card, $$row->profile_picture, $$row->adress, $$row->phone_numbers, $$row->email, $$row->password);
+                return new Customer($row->id_customer,$row->name, $row->number_card, $row->profile_picture, $row->adress, $row->phone_numbers, $row->email, $row->password);
             }    
         }
-   
-        return "Erreur: Verifier votre champs";
+        
+        return null;
         //throw Exception("Customer not found");
     }
 }

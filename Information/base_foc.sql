@@ -1,5 +1,5 @@
 
-create datebase hilalao;
+create database hilalao;
 ./c hilalao;
 
 --Le client 
