@@ -22,7 +22,7 @@ Route::get('/Check', [LoginController::class,
         'checkAccount']
 )->name('login');;
 
-Route::get('/Sign', function () {
+
 Route::get('/sign', function () {
     return view('BO/sign');
 })->name('view_sign');

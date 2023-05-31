@@ -108,13 +108,14 @@ class UserFOU
 
     }
 
-    public function log($username, $mdp) {
+    public function log() {
         try {
             $users = new UserFOU();
-            $users = $users->findUserByUsername($username);
-            if ($users->getMDP() != $mdp) {
+            $users = $users->findUserByUsername($this->getName());
+            if ($users->getMDP() != $this->getMDP()) {
                 throw new UserException("mdp", "Mot de passe érroné");
             }
+            return $users;
         } catch (UserException $e) {
             throw $e;
         }
@@ -127,7 +128,7 @@ class UserFOU
         DB::insert($sql);
     }
 
-    public function findAll() {
+    public static function findAll() {
         $users = DB::select('SELECT * FROM v_list_users');
         $res = array();
         foreach ($users as $result) {
@@ -145,7 +146,7 @@ class UserFOU
         return $res;
     }
 
-    public function findUserByUsername($username) {
+    public static function findUserByUsername($username) {
         $sql = "SELECT * FROM v_list_users WHERE email='%s' OR name='%s'";
         $sql = sprintf($sql, $username, $username);
         $results = DB::select($sql);
