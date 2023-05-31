@@ -111,11 +111,12 @@ CREATE OR REPLACE VIEW v_reservation_lists AS SELECT * FROM reservation;
 
 
 -- Front office utilisateur
-CREATE TABLE users ( 
+CREATE TABLE users (
 	id_user SERIAL PRIMARY KEY,
 	name VARCHAR(35) NOT NULL,
 	email VARCHAR(35) NOT NULL,
 	dtn DATE NOT NULL,
+	genre VARCHAR(1) NOT NULL,
 	mdp VARCHAR(35) NOT NULL
 );
 
