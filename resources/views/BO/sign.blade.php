@@ -11,19 +11,21 @@
 <body>
     <div class="container box">
         <div class="row">
-            <h1 class="box__title">Log <span class="box__title--span">in</span></h1>
-            <form class="col-md-12 form-content" action="">
-                <input class="form-content__input form-content__input--log" type="text" placeholder="Nom d'utilisateur" aria-label=".form-control-lg">
-                <input class="form-content__input form-content__input--log" type="password" placeholder="Mot de passe" aria-label=".form-control-lg" id="password">
+            <h1 class="box__title">Sign <span class="box__title--span">up </span></h1>
+            <div class="col-md-12 form-content">
+                <input class="form-content__input form-content__input--log" type="text" placeholder="Name" aria-label=".form-control-lg">
+                <input class="form-content__input form-content__input--log" type="text" placeholder="First name" aria-label=".form-control-lg">
+                <input class="form-content__input form-content__input--log" type="text" placeholder="Phone number" aria-label=".form-control-lg">
+                <input class="form-content__input form-content__input--log" type="mail" placeholder="E-mail" aria-label=".form-control-lg">
+                <input class="form-content__input form-content__input--log" type="password" placeholder="Password" aria-label=".form-control-lg" id="password">
                 <div class="form-content__checkbox">
                     <input type="checkbox" class="form-content__input form-content__input--showing-password" onclick="showPassword()">
                     <label for="form-content__label--showing-password">Show Password</label>
                 </div>
-                <button type="submit" class="form-content__input--submit">SIGN IN</button>
-            </form>
+                <button type="submit" class="form-content__input--submit">SIGN UP</button>
+            </div>
                 
         </div>
-        <p>Don't have a account? <a href="{{ route('Sign') }}">Sign up</a></p>
     </div>
 </body>
 
