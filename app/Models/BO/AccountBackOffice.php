@@ -1,112 +1,114 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\BO;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\Model;
 
-class AccountBackOffice extends Model
+class AccountBackOffice
 {
-    protected $table = 'account_back_office';
-    protected $primaryKey = 'id_account';
-    public $timestamps = false;
+    public $id_account;
+    public $mail;
+    public $password;
+    public $firstname;
+    public $name;
+    public $telephone_number;
 
-    protected $fillable = [
-        'mail',
-        'password',
-        'firstname',
-        'name',
-        'telephone_number',
-    ];
-
-    // Autres relations ou méthodes du modèle
 
     // Getter pour l'attribut 'mail'
     public function getPrimaryKey()
     {
-        return $this->attributes['primaryKey'];
+        return $this->id_account;
     }
 
     // Setter pour l'attribut 'mail'
     public function setPrimaryKey($value)
     {
-        $this->attributes['primaryKey'] = $value;
+        $this->id_account = $value;
     }
 
     public function getPassword()
     {
-        return $this->attributes['password'];
+        return $this->password;
     }
 
     // Setter pour l'attribut 'mail'
     public function setPassword($value)
     {
-        $this->attributes['password'] = $value;
+        $this->password = $value;
     }
 
     // Getter pour l'attribut 'mail'
-    public function getMailAttribute()
+    public function getMail()
     {
-        return $this->attributes['mail'];
+        return $this->mail;
     }
 
     // Setter pour l'attribut 'mail'
-    public function setMailAttribute($value)
+    public function setMail($value)
     {
-        $this->attributes['mail'] = $value;
+        $this->mail = $value;
     }
 
     // Getter pour l'attribut 'firstname'
-    public function getFirstnameAttribute()
+    public function getFirstname()
     {
-        return $this->attributes['firstname'];
+        return $this->firstname;
     }
 
     // Setter pour l'attribut 'firstname'
-    public function setFirstnameAttribute($value)
+    public function setFirstname($value)
     {
-        $this->attributes['firstname'] = $value;
+        $this->firstname = $value;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    // Setter pour l'attribut 'name'
+    public function setName($value)
+    {
+        $this->name = $value;
     }
 
     // Autres getters et setters pour les attributs
 
     // Exemple :
     // Getter pour l'attribut 'telephone_number'
-    public function getTelephoneNumberAttribute()
+    public function getTelephoneNumber()
     {
         // Ajouter une logique personnalisée si nécessaire
-        return $this->attributes['telephone_number'];
+        return $this->telephone_number;
     }
 
     // Setter pour l'attribut 'telephone_number'
-    public function setTelephoneNumberAttribute($value)
+    public function setTelephoneNumber($value)
     {
         // Ajouter une logique personnalisée si nécessaire
-        $this->attributes['telephone_number'] = $value;
+        $this->telephone_number = $value;
     }
 
     public function __construct()
     {
-        parent::__construct();
     }
 
     public function getAllAccountBackOffice()
     {
         $accounts = DB::select('SELECT * FROM account_back_office');
-        $results =  response()->json($accounts);
         $res = array();
-        $temp = null;
-        foreach ($results as $result) {
+        foreach ($accounts as $result) {
             $temp = new AccountBackOffice();
-            $temp->primaryKey = $result->id_account;
-            $temp->mail = $result->mail;
-            $temp->password = $result->password;
-            $temp->firstname = $result->firstname;
-            $temp->name = $result->name;
-            $temp->telephone_number = $result->telephone_number;
+            $temp->setPrimaryKey($result->id_account);
+            $temp->setMail($result->mail);
+            $temp->setPassword($result->password);
+            $temp->setFirstname($result->firstname);
+            $temp->setName($result->name);
+            $temp->setTelephoneNumber($result->telephone_number);
             $res[] = $temp;
         }
         return $res;
     }
+
 
     public function getAccountBackOfficeConnected($mail, $pwd)
     {
@@ -116,7 +118,7 @@ class AccountBackOffice extends Model
         if (count($accounts) > 0) {
             $result = $accounts[0];
             $res = new AccountBackOffice();
-            $res->primaryKey = $result->id_account;
+            $res->id_account = $result->id_account;
             $res->mail = $result->mail;
             $res->password = $result->password;
             $res->firstname = $result->firstname;
