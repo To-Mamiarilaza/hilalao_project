@@ -12,12 +12,25 @@
     <div class="container box">
         <div class="row">
             <h1 class="box__title">Sign <span class="box__title--span">up</span></h1>
-            <form class="col-md-12 form-content" action="" method="post">
-                <input class="form-content__input form-content__input--log" type="text" placeholder="Nom d'utilisateur" aria-label=".form-control-lg" required>
-                <input class="form-content__input form-content__input--log" type="text" placeholder="Date de naissance" aria-label=".form-control-lg" id="date" onmouseover="showDate()" onmouseout="hideDate()" required>
-                <input class="form-content__input form-content__input--log" type="username" placeholder="Nom d'utilisateur" aria-label=".form-control-lg" required>
-                <input class="form-content__input form-content__input--log" type="password" placeholder="Mot de passe" aria-label=".form-control-lg" id="password" required>
-                <input class="form-content__input form-content__input--log" type="password" placeholder="Répéter le mot de passe" aria-label=".form-control-lg" id="password" required>
+            <form class="col-md-12 form-content" action="{{ route('sign-user-treat') }}" method="post">
+                @csrf
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <input name="name" class="form-content__input form-content__input--log" type="text" placeholder="Nom d'utilisateur" aria-label=".form-control-lg" required>
+                        <input name="email" class="form-content__input form-content__input--log" type="text" placeholder="Email de l'utilisateur" aria-label=".form-control-lg">
+                        <input name="dtn" class="form-content__input form-content__input--log" type="text" placeholder="Date de naissance" aria-label=".form-control-lg" id="date" onmouseover="showDate()" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input name="contact" class="form-content__input form-content__input--log" type="contact" placeholder="Téléphone" aria-label=".form-control-lg" id="date" onmouseover="showDate()" required>
+                        <select name="idgenre" id="" class="form-content__input form-content__input--log">
+                            <option value="1">Homme</option>
+                            <option value="2">Femme</option>
+                        </select>
+                        <input name="mdp" class="form-content__input form-content__input--log" type="password" placeholder="Mot de passe" aria-label=".form-control-lg" id="password" required>
+                    </div>
+                </div>
                 <button type="submit" class="form-content__input--submit">SIGN IN</button>
             </form>
 

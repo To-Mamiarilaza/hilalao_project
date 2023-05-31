@@ -30,6 +30,15 @@ body {
   text-align: left;
   width: 100%;
 }
+.form-content__input--error {
+  color: red;
+  margin-top: 30px;
+  height: 60px;
+  width: 100%;
+  padding-left: 10px;
+  border-radius: 10px;
+  border: #a79693 1px solid;
+}
 .form-content__input--log {
   margin-top: 30px;
   height: 60px;

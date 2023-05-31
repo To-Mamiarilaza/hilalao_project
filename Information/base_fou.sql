@@ -3,8 +3,14 @@ CREATE TABLE users (
 	name VARCHAR(35) NOT NULL,
 	email VARCHAR(35) NOT NULL,
 	dtn DATE NOT NULL,
-	genre VARCHAR(1) NOT NULL,
-	mdp VARCHAR(35) NOT NULL
+	id_genre INT,
+	mdp VARCHAR(35) NOT NULL,
+	FOREIGN KEY (id_genre) REFERENCES genre(id_genre)
+);
+
+CREATE TABLE genre (
+    id_genre SERIAL PRIMARY KEY,
+    genre    VARCHAR(10) NOT NULL
 );
 
 CREATE TABLE reservation (

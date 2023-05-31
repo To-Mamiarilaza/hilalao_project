@@ -14,9 +14,19 @@
             <div class="col-md-12">
 
                 <h1 class="box__title">Log <span class="box__title--span">in</span></h1>
-                <form action="#" method="POST" class="form-content">
-                    <input class="form-content__input form-content__input--log" type="text" placeholder="Nom d'utilisateur" aria-label=".form-control-lg">
-                    <input class="form-content__input form-content__input--log" type="password" placeholder="Mot de passe" aria-label=".form-control-lg" id="password">
+                <form action="{{ route('log-user-treat') }}" method="POST" class="form-content">
+                    @csrf
+                    @if($error=='username')
+                    <input name="username" class="form-content__input form-content__input--log form-content__input--error" type="text" placeholder="Nom d'utilisateur" aria-label=".form-control-lg" value="Utilisateur inconnue">
+                    @else
+                    <input name="username" class="form-content__input form-content__input--log" type="text" placeholder="Nom d'utilisateur" aria-label=".form-control-lg">
+                    @endif
+
+                    @if($error=='mdp')
+                    <input name="password" class="form-content__input form-content__input--error" type="text" placeholder="Mot de passe" aria-label=".form-control-lg" id="password" value="Mot de passe érroné">
+                    @else
+                    <input name="password" class="form-content__input form-content__input--log" type="password" placeholder="Mot de passe" aria-label=".form-control-lg" id="password">
+                    @endif
                     <div class="form-content__checkbox">
                         <input type="checkbox" class="form-content__input form-content__input--showing-password" onclick="showPassword()">
                         <label for="form-content__label--showing-password">Show Password</label>

@@ -39,6 +39,16 @@ body {
     }
 
     &__input {
+        &--error {
+            color: red;
+            margin-top: 30px;
+            height: 60px;
+            width: 100%;
+            padding-left: 10px;
+            border-radius: 10px;
+            border: #a79693 1px solid;
+        }
+
         &--log{
             margin-top: 30px;
             height: 60px;
