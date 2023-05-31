@@ -30,6 +30,7 @@ CREATE TABLE hourly_rate (
 	discount DOUBLE PRECISION	-- Remise
 );
 
+
 ---Toutes les categoriries du terrain 
 CREATE TABLE category_terrain (
 	id_category_terrain SERIAL PRIMARY KEY,
