@@ -112,7 +112,7 @@ class AccountBackOffice
 
     public function getAccountBackOfficeConnected($mail, $pwd)
     {
-        $req = 'SELECT * FROM account_back_office WHERE mail = "%s" AND password = "%s"';
+        $req = "SELECT * FROM account_back_office WHERE mail = '%s' AND password = '%s'";
         $req = sprintf($req, $mail, $pwd);
         $accounts = DB::select($req);
         if (count($accounts) > 0) {
@@ -128,16 +128,5 @@ class AccountBackOffice
         }
 
         return null;
-    }
-
-    public function insertAccountBackOffice(){
-        $req = 'INSERT INTO account_back_office(mail,password,firstname,name,telephone_number) VALUES ("%s","%s","%s","%s",%s) ';
-        $mail = $this->mail;
-        $pwd = $this->password;
-        $name = $this->name ;
-        $firstname = $this->firstname ;
-        $tel = $this->telephone_number ;
-        $req = sprintf($req,$mail,$pwd,$name,$firstname,$tel);
-        DB::insert($req);
     }
 }

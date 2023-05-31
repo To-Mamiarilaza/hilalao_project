@@ -12,9 +12,9 @@
     <div class="container box">
         <div class="row">
             <h1 class="box__title">Log <span class="box__title--span">in</span></h1>
-            <form class="col-md-12 form-content" action="">
-                <input class="form-content__input form-content__input--log" type="text" placeholder="Nom d'utilisateur" aria-label=".form-control-lg">
-                <input class="form-content__input form-content__input--log" type="password" placeholder="Mot de passe" aria-label=".form-control-lg" id="password">
+            <form class="col-md-12 form-content" action="{{ route('login') }}">
+                <input class="form-content__input form-content__input--log" type="mail" placeholder="Nom d'utilisateur" name="mail" aria-label=".form-control-lg">
+                <input class="form-content__input form-content__input--log" type="password" placeholder="Mot de passe" name="password" aria-label=".form-control-lg" id="password">
                 <div class="form-content__checkbox">
                     <input type="checkbox" class="form-content__input form-content__input--showing-password" onclick="showPassword()">
                     <label for="form-content__label--showing-password">Show Password</label>
@@ -23,7 +23,7 @@
             </form>
                 
         </div>
-        <p>Don't have a account? <a href="{{ route('Sign') }}">Sign up</a></p>
+        <p>Don't have a account? <a href="{{ route('view_sign') }}">Sign up</a></p>
     </div>
 </body>
 
