@@ -5,7 +5,7 @@ create datebase hilalao;
 CREATE TABLE identity_card (
 	id_card SERIAL PRIMARY KEY,
 	card_picture VARCHAR(30) NOT NULL,
-	card_number INT NOT NULL
+	card_number VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE customer (

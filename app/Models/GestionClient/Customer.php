@@ -2,7 +2,6 @@
 
 namespace App\Models;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Exception;
 
 class Customer
 {
@@ -129,12 +128,16 @@ class Customer
         ->delete();
     }
 
-    public static function login($id_customer, $password) 
+    public static function login($password, $email) 
     {
-        $results = DB::table('customer')->where('id_customer', $id_customer)->first();
+        $results = DB::select("SELECT * FROM customer WHERE password = "+$password+" AND email = '"+$email+"'");
+        $i = 0;
         if($results) {
-            return new Customer($results->id_customer,$results->name, $results->customer_id_card, $results->profile_picture, $results->adress, $results->phone_numbers, $results->email, $results->password);
+            foreach ($results as $row) {
+                return new Customer($$row->id_customer,$$row->name, $$row->customer_id_card, $$row->profile_picture, $$row->adress, $$row->phone_numbers, $$row->email, $$row->password);
+            }    
         }
+   
         return "Erreur: Verifier votre champs";
         //throw Illuminate\Support\Exception("Customer not found");
     }
