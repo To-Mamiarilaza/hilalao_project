@@ -45,12 +45,6 @@ CREATE TABLE type_terrain (
 	value VARCHAR(20)
 );
 
----Toutes les communes existants
-CREATE TABLE municipalities (
-	id_municipalities SERIAL PRIMARY KEY,
-	value VARCHAR(20)
-);
-
 ---Etat des reservations(en attente, annuler, confirmer, en retard...)
 CREATE TABLE reservation_status (
 	id_reservation_status SERIAL PRIMARY KEY,
