@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 <?php
 
 namespace App\Models;
@@ -89,14 +87,8 @@ class AccountBackOffice extends Model
     public function __construct()
     {
         parent::__construct();
-        // $this->id_account = $id;
-        // $this->mail = $mail;
-        // $this->password = $pwd;
-        // $this->name = $name;
-        // $this->firstname = $firstname;
-        // $this->telephone_number = $tel;
     }
-// 
+
     public function getAllAccountBackOffice()
     {
         $accounts = DB::select('SELECT * FROM account_back_office');
@@ -147,4 +139,3 @@ class AccountBackOffice extends Model
         DB::insert($req);
     }
 }
->>>>>>> Stashed changes
