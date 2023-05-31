@@ -138,3 +138,7 @@ CREATE TABLE subscribe (
 	FOREIGN KEY (id_state) REFERENCES state(id_state)
 );
 
+CREATE OR REPLACE VIEW v_list_users AS
+SELECT u.id_user, u.name, u.email, u.dtn, u.mdp, g.genre, g.id_genre, u.contact
+FROM users u
+JOIN genre g ON u.id_genre=g.id_genre
