@@ -129,23 +129,6 @@ CREATE TABLE reservation (
 	FOREIGN KEY (id_reservation_status) REFERENCES reservation_status(id_reservation_status)
 );
 
----Mathode du payement
-CREATE TABLE payment_method (
-	id_payment_method SERIAL PRIMARY KEY,
-	value VARCHAR(20)
-);
-
----Payment
-CREATE TABLE payment (
-	id_payment SERIAL PRIMARY KEY,
-	id_payment_method INT,							--- Methode du payment
-	id_subscription INT,							--- Aboonement
-	amount DOUBLE PRECISION,						--- Montant
-	payment_date_time TIMESTAMP,					--- Date du payment
-	FOREIGN KEY (id_payment_method) REFERENCES payment_method(id_payment_method),
-	FOREIGN KEY (id_subscription) REFERENCES subscription(id_subscription)
-);
-
 -----Ireto olona ireto irery ihany no afaka manova anireo table ireo : Chalman, fy, Vioart
 -----Izay olona hafa te hanova anireo dia tsy maintsy miteny aminay alou (ireo ambony ireo ny anaranay)
 -----Fa ny vue aminy alalan'ireo table ireo ihany no afaka foroninareo aminy zay tokony ilaivanareo azy any
