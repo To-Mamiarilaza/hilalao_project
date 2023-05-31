@@ -16,7 +16,7 @@ CREATE TABLE subscription (
 	FOREIGN KEY (id_state) REFERENCES state(id_state)
 );
 
--- Person Back Office
+-- Person Back Office 30/05/23
 CREATE TABLE account_back_office (
 	id_account SERIAL PRIMARY KEY,
 	mail  VARCHAR(50),
@@ -31,3 +31,40 @@ VALUES
     ('john@example.com', 'password123', 'John', 'Doe', 1234567890),
     ('jane@example.com', 'password456', 'Jane', 'Smith', 9876543210),
     ('bob@example.com', 'password789', 'Bob', 'Johnson', 5555555555);
+
+-- 31/05/23 CRUD
+---Toutes les categoriries du terrain 
+CREATE TABLE category_terrain (
+	id_category_terrain SERIAL PRIMARY KEY,
+	value VARCHAR(20)
+);
+
+---Toutes les types du terrain
+CREATE TABLE type_terrain (
+	id_type_terrain SERIAL PRIMARY KEY,
+	value VARCHAR(20)
+);
+
+---Toutes les communes existants
+CREATE TABLE municipalities (
+	id_municipalities SERIAL PRIMARY KEY,
+	value VARCHAR(20)
+);
+
+---Etat des reservations(en attente, annuler, confirmer, en retard...)
+CREATE TABLE reservation_status (
+	id_reservation_status SERIAL PRIMARY KEY,
+	value VARCHAR(10)
+);
+
+---Type reservation (physique, non physique...)
+CREATE TABLE reservation_type (
+	id_reservation_type SERIAL PRIMARY KEY,
+	value VARCHAR(10)
+);
+
+---Mathode du payement
+CREATE TABLE payment_method (
+	id_payment_method SERIAL PRIMARY KEY,
+	value VARCHAR(20)
+);
