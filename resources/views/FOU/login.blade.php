@@ -23,7 +23,7 @@
                     @endif
 
                     @if($error=='mdp')
-                    <input name="text" class="form-content__input form-content__input--error" type="password" placeholder="Mot de passe" aria-label=".form-control-lg" id="password" value="Mot de passe érroné">
+                    <input name="password" class="form-content__input form-content__input--error" type="text" placeholder="Mot de passe" aria-label=".form-control-lg" id="password" value="Mot de passe érroné">
                     @else
                     <input name="password" class="form-content__input form-content__input--log" type="password" placeholder="Mot de passe" aria-label=".form-control-lg" id="password">
                     @endif
