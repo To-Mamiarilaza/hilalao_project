@@ -84,30 +84,26 @@ class AccountBackOffice extends Model
         $this->attributes['telephone_number'] = $value;
     }
 
-    public function __construct($id, $mail,$pwd,$firstname,$name,$tel)
+    public function __construct()
     {
         parent::__construct();
-        // $this->id_account = $id;
-        // $this->mail = $mail;
-        // $this->password = $pwd;
-        // $this->name = $name;
-        // $this->firstname = $firstname;
-        // $this->telephone_number = $tel;
     }
-// 
+
     public function getAllAccountBackOffice()
     {
         $accounts = DB::select('SELECT * FROM account_back_office');
         $results =  response()->json($accounts);
         $res = array();
+        $temp = null;
         foreach ($results as $result) {
-            $id = $result->id_account;
-            $mail = $result->mail;
-            $pwd = $result->password;
-            $firstname = $result->firstname;
-            $name = $result->name;
-            $telephoneNumber = $result->telephone_number;
-            $res[] = new AccountBackOffice($id,$mail,$pwd,$firstname,$name,$telephoneNumber);
+            $temp = new AccountBackOffice();
+            $temp->primaryKey = $result->id_account;
+            $temp->mail = $result->mail;
+            $temp->password = $result->password;
+            $temp->firstname = $result->firstname;
+            $temp->name = $result->name;
+            $temp->telephone_number = $result->telephone_number;
+            $res[] = $temp;
         }
         return $res;
     }
@@ -117,17 +113,15 @@ class AccountBackOffice extends Model
         $req = 'SELECT * FROM account_back_office WHERE mail = "%s" AND password = "%s"';
         $req = sprintf($req, $mail, $pwd);
         $accounts = DB::select($req);
-
         if (count($accounts) > 0) {
             $result = $accounts[0];
-            $id = $result->id_account;
-            $mail = $result->mail;
-            $pwd = $result->password;
-            $firstname = $result->firstname;
-            $name = $result->name;
-            $telephoneNumber = $result->telephone_number;
-
-            $res = new AccountBackOffice($id, $mail, $pwd, $firstname, $name, $telephoneNumber);
+            $res = new AccountBackOffice();
+            $res->primaryKey = $result->id_account;
+            $res->mail = $result->mail;
+            $res->password = $result->password;
+            $res->firstname = $result->firstname;
+            $res->name = $result->name;
+            $res->telephone_number = $result->telephone_number;
             return $res;
         }
 
@@ -135,7 +129,13 @@ class AccountBackOffice extends Model
     }
 
     public function insertAccountBackOffice(){
-        $temp = new AccountBackOffice();
-
+        $req = 'INSERT INTO account_back_office(mail,password,firstname,name,telephone_number) VALUES ("%s","%s","%s","%s",%s) ';
+        $mail = $this->mail;
+        $pwd = $this->password;
+        $name = $this->name ;
+        $firstname = $this->firstname ;
+        $tel = $this->telephone_number ;
+        $req = sprintf($req,$mail,$pwd,$name,$firstname,$tel);
+        DB::insert($req);
     }
 }
