@@ -23,7 +23,7 @@
             </form>
                 
         </div>
-        <p>Don't have a account? <a href="{{ route('Sign') }}">Sign up</a></p>
+        <p>Don't have a account? <a href="{{ route('view_sign') }}">Sign up</a></p>
     </div>
 </body>
 
