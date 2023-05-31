@@ -112,7 +112,7 @@ class AccountBackOffice
 
     public function getAccountBackOfficeConnected($mail, $pwd)
     {
-        $req = 'SELECT * FROM account_back_office WHERE mail = "%s" AND password = "%s"';
+        $req = "SELECT * FROM account_back_office WHERE mail = '%s' AND password = '%s'";
         $req = sprintf($req, $mail, $pwd);
         $accounts = DB::select($req);
         if (count($accounts) > 0) {
