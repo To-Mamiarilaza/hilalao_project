@@ -1,12 +1,13 @@
-CREATE TABLE users ( 
+CREATE TABLE users (
 	id_user SERIAL PRIMARY KEY,
 	name VARCHAR(35) NOT NULL,
 	email VARCHAR(35) NOT NULL,
 	dtn DATE NOT NULL,
+	genre VARCHAR(1) NOT NULL,
 	mdp VARCHAR(35) NOT NULL
 );
 
-CREATE TABLE reservation ( 
+CREATE TABLE reservation (
 	id_reservation SERIAL PRIMARY KEY,
 	id_terrain INTEGER NOT NULL,
 	id_user INTEGER NOT NULL,
@@ -17,5 +18,8 @@ CREATE TABLE reservation (
 );
 
 INSERT INTO users VALUES
-	(DEFAULT, 'Eric', 'Eric@gmail.com', '2007-11-29', 'eric')
+
+	(DEFAULT, 'Eric', 'Eric@gmail.com', '2007-11-29')
+	(DEFAULT, 'Tiavina', 'tiavina@gmail.com', '2005-10-29')
 ;
+
