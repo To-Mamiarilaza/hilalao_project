@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\BO;
 
+use Exception;
 use App\Models\BO\AccountBackOffice;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -22,15 +23,21 @@ class LoginController extends Controller
 
     public function checkAccount(Request $request)
     {
-        $model = new AccountBackOffice();
-        $mail = $request->input('mail');
-        $password = $request->input('password');
-        $account = $model->getAccountBackOfficeConnected($mail,$password);
-        Session::put('id_account', $account->id_account);
-        Session::save();
+        try {
+            $model = new AccountBackOffice();
+            $mail = $request->input('mail');
+            $password = $request->input('password');
+            $account = $model->getAccountBackOfficeConnected($mail,$password);
+            Session::put('id_account', $account->id_account);
+            Session::save();
         
-        // Faites ce que vous voulez avec les données récupérées
-        return view('BO.resultats', ['account'=>$account]);
+            // Faites ce que vous voulez avec les données récupérées
+            return view('BO.resultats', ['account'=>$account]);
+        } catch (Exception $e) {
+            $errorMessage = "Veuillez ressayer!!";
+            return view('BO/login', ['error'=>$errorMessage]);
+            // Passer le message d'erreur à la vue
+        }
     }
     
     public function saveAll(Request $request)

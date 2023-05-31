@@ -114,7 +114,6 @@ class AccountBackOffice
     {
         $req = "SELECT * FROM account_back_office WHERE mail = '%s' AND password = '%s'";
         $req = sprintf($req, $mail, $pwd);
-        print($req);
         $accounts = DB::select($req);
         if (count($accounts) > 0) {
             $result = $accounts[0];
@@ -127,7 +126,6 @@ class AccountBackOffice
             $res->telephone_number = $result->telephone_number;
             return $res;
         }
-
         return null;
     }
 
