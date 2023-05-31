@@ -18,6 +18,8 @@ CREATE TABLE reservation (
 );
 
 INSERT INTO users VALUES
+
 	(DEFAULT, 'Eric', 'Eric@gmail.com', '2007-11-29')
 	(DEFAULT, 'Tiavina', 'tiavina@gmail.com', '2005-10-29')
 ;
+
