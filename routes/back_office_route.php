@@ -14,7 +14,16 @@ use App\Http\Controllers\BO\LoginController;
 |
 */
 
-Route::get('/', [LoginController::class,
-    'all']);
+Route::get('/', function () {
+    return view('BO/login');
+});
+
+Route::get('/sign', function () {
+    return view('BO/sign');
+})->name('view_sign');
+
+
+Route::get('/Sign', [LoginController::class,
+    'saveAll'])->name('Sign');
 
 ?>
