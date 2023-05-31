@@ -87,12 +87,12 @@ class AccountBackOffice extends Model
     public function __construct($id, $mail,$pwd,$firstname,$name,$tel)
     {
         parent::__construct();
-        $this->id_account = $id;
-        $this->mail = $mail;
-        $this->password = $pwd;
-        $this->name = $name;
-        $this->firstname = $firstname;
-        $this->telephone_number = $tel;
+        // $this->id_account = $id;
+        // $this->mail = $mail;
+        // $this->password = $pwd;
+        // $this->name = $name;
+        // $this->firstname = $firstname;
+        // $this->telephone_number = $tel;
     }
 // 
     public function getAllAccountBackOffice()
@@ -134,9 +134,8 @@ class AccountBackOffice extends Model
         return null;
     }
 
-    public function insertAccountBackOffice($mail,$pwd,$firstname,$name,$tel){
+    public function insertAccountBackOffice(){
         $temp = new AccountBackOffice();
-        $temp->mail = $mail;
-        
+
     }
 }
