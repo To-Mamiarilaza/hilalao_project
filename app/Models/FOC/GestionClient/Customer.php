@@ -92,16 +92,10 @@ class Customer
     //Sauvegarder un client dans la base
     public function create()
     {
-        DB::table('customer')->insert([
-            'id_customer' => $this->id_customer,
-            'name' => $this->name,
-            'number_card' => $this->number_card,
-            'profile_picture' => $this->profile_picture,
-            'adress' => $this->adress,
-            'phone_numbers' => $this->phone_numbers,
-            'email' => $this->email,
-            'password' => $this->password
-        ]);
+        $req = "INSERT INTO customer VALUES ( default, '%s', '%s', '%s', '%s', '%s', '%s', '%s')";
+        $req = sprintf($req,$this->name,$this->number_card,$this->profile_picture,$this->adress,$this->phone_numbers,$this->email,$this->password);
+        //echo $req;  
+        DB::insert($req);
     }
 
     //Mettre a jour un client
@@ -143,4 +137,5 @@ class Customer
         return null;
         //throw Exception("Customer not found");
     }
+    
 }

@@ -14,17 +14,18 @@
             <h1 class="box__title">Sign <span class="box__title--span">up</span></h1>
             <h5><i>Client account</i></h5>
             <div class="col-md-6 elements">
-                <form action="#" method="POST" class="col-md-12 form-content">
-                    <input class="form-content__input form-content__input--log" type="text" placeholder="Customer's name" aria-label=".form-control-lg">
-                    <input class="form-content__input form-content__input--log" type="email" placeholder="Email" aria-label=".form-control-lg">
-                    <input class="form-content__input form-content__input--log" type="tel" placeholder="Phone number" aria-label=".form-control-lg">
-                    <input class="form-content__input form-content__input--log" type="text" placeholder="Local adresse" aria-label=".form-control-lg">
-                    <input class="form-content__input form-content__input--log" type="password" placeholder="Password" aria-label=".form-control-lg" id="password">
+                <form enctype="multipart/form-data" action="{{ route('insertCustomer') }}" method="POST" class="col-md-12 form-content">
+                @csrf    
+                    <input class="form-content__input form-content__input--log" type="text" placeholder="Customer's name" aria-label=".form-control-lg" name="name">
+                    <input class="form-content__input form-content__input--log" type="email" placeholder="Email" aria-label=".form-control-lg" name="email">
+                    <input class="form-content__input form-content__input--log" type="tel" placeholder="Phone number" aria-label=".form-control-lg" name="phoneNumber">
+                    <input class="form-content__input form-content__input--log" type="text" placeholder="Local adresse" aria-label=".form-control-lg" name="address">
+                    <input class="form-content__input form-content__input--log" type="password" placeholder="Password" aria-label=".form-control-lg" id="password" name="password">
                     <div class="form-content__checkbox">
                         <input type="checkbox" class="form-content__input form-content__input--showing-password" onclick="showPassword()">
                         <label for="form-content__label--showing-password">Show Password</label>
                     </div>
-                    <input class="form-content__input form-content__input--log" type="number" placeholder="Identity card number" aria-label=".form-control-lg">
+                    <input class="form-content__input form-content__input--log" type="number" placeholder="Identity card number" aria-label=".form-control-lg" name="idCard">
             </div>
             <div class="col-md-6 elements">
                 <div class="row">
@@ -33,7 +34,7 @@
                             <h3>Profile picture</h3>
                         </div>
                         <div class="input_pictures">
-                            <input type="file">
+                            <input type="file" name="profile_picture">
                         </div>
                     </div>
                 </div>
