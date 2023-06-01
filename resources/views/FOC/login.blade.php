@@ -25,7 +25,7 @@
             </form>
                 
         </div>
-        <p>Don't have a account? <a href="{{ route('SignInAccount') }}">Sign up</a></p>
+        <p>Don't have an account? <a href="{{ route('SignInAccount') }}">Sign up</a></p>
     </div>
 </body>
 

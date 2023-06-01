@@ -37,21 +37,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <h3>Identity card pictures</h3>
-                        </div>
-                        <div class="input_pictures">
-                            <input type="file">
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
                     <button type="submit" class="form-content__input--submit">SIGN IN</button>
                 </form>
-    <p>Don't have a account? <a href="">Sign up</a></p>
+    <p>Already have an account? <a href="">Log in</a></p>
     </div>
 </body>
 
