@@ -24,8 +24,7 @@
                         <input type="checkbox" class="form-content__input form-content__input--showing-password" onclick="showPassword()">
                         <label for="form-content__label--showing-password">Show Password</label>
                     </div>
-                    <button type="submit" class="form-content__input--submit">SIGN IN</button>
-                </form>
+                    <input class="form-content__input form-content__input--log" type="number" placeholder="Identity card number" aria-label=".form-control-lg">
             </div>
             <div class="col-md-6 elements">
                 <div class="row">
@@ -50,7 +49,9 @@
                 </div>
             </div>
         </div>
-        <p>Don't have a account? <a href="">Sign up</a></p>
+                    <button type="submit" class="form-content__input--submit">SIGN IN</button>
+                </form>
+    <p>Don't have a account? <a href="">Sign up</a></p>
     </div>
 </body>
 
