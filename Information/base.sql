@@ -110,11 +110,12 @@ CREATE OR REPLACE VIEW v_reservation_lists AS SELECT * FROM reservation;
 
 
 -- Front office utilisateur
-CREATE TABLE users ( 
+CREATE TABLE users (
 	id_user SERIAL PRIMARY KEY,
 	name VARCHAR(35) NOT NULL,
 	email VARCHAR(35) NOT NULL,
 	dtn DATE NOT NULL,
+	genre VARCHAR(1) NOT NULL,
 	mdp VARCHAR(35) NOT NULL
 );
 
@@ -136,3 +137,7 @@ CREATE TABLE subscribe (
 	FOREIGN KEY (id_state) REFERENCES state(id_state)
 );
 
+CREATE OR REPLACE VIEW v_list_users AS
+SELECT u.id_user, u.name, u.email, u.dtn, u.mdp, g.genre, g.id_genre, u.contact
+FROM users u
+JOIN genre g ON u.id_genre=g.id_genre

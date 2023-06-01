@@ -35,13 +35,16 @@
                             <h3>Profile picture</h3>
                         </div>
                         <div class="input_pictures">
-                            <input type="file">
+                        <form action="{{ route('upload') }}" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="100000000">
+                            <input type="file" name="fichier">
+                            <input type="submit" name="envoyer" value="Ajouter">
+                        </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <p>Don't have a account? <a href="">Sign up</a></p>
     </div>
 </body>
 

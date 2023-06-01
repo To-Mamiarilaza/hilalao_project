@@ -1,14 +1,27 @@
-<?php
-    use Illuminate\Support\Facades\Route;
-    use App\Http\Controllers\FOC\InscriptionController;
+<?php 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FOC\LoginController;
+use App\Http\Controllers\FOC\CustomerController;
 
-    Route::get('/login', function() {
-        return view('FOC/login');
-    });
+Route::POST('/SignIn', [LoginController::class,
+    'login'])->name('SignIn');
 
-    Route::get('/signup', function() {
-        return view('FOC/signup');
-    });
 
-    Route::post('/inscription', [InscriptionController::class,'insertCustomer'])->name('insertCustomer');
-?>
+Route::GET('/SignInAccount', [LoginController::class,
+'signup'])->name('SignInAccount');
+
+Route::post('/inscription', [InscriptionController::class,'insertCustomer'])->name('insertCustomer');
+
+Route::post('/upload', [InscriptionController::class,'upload'])->name('upload');
+
+Route::get('/', function () {
+    return view('FOC/login');
+});
+
+Route::get('/setting', function () {
+    return view('FOC/deconnection');
+})->name('setting');
+
+ 
+Route::GET('/deconnect', [CustomerController::class,
+    'deconnect'])->name('deconnect');

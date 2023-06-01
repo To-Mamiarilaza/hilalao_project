@@ -1,0 +1,1 @@
+INSERT INTO customer VALUES (default,'chalman', '111111111111', 'profile1.png', 'Bevalala', '0345091434', 'chal@gmail.com', 'chalman');
