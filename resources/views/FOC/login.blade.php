@@ -12,6 +12,7 @@
     <div class="container box">
         <div class="row">
             <h1 class="box__title">Log <span class="box__title--span">in</span></h1>
+            <h5><i>Client login</i></h5>
             <form action="{{ route('SignIn') }}" method="POST" class="col-md-12 form-content">
             @csrf  
             <input class="form-content__input form-content__input--log" type="text" placeholder="Email" aria-label=".form-control-lg"  name="email" value="chal@gmail.com">
@@ -20,7 +21,7 @@
                     <input type="checkbox" class="form-content__input form-content__input--showing-password" onclick="showPassword()">
                     <label for="form-content__label--showing-password">Show Password</label>
                 </div>
-                <button type="submit" class="form-content__input--submit">SIGN IN</button>
+                <button type="submit" class="form-content__input--submit">LOG IN</button>
             </form>
                 
         </div>

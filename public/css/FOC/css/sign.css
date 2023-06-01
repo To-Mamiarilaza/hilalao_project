@@ -1,12 +1,13 @@
 body {
   background-color: #E17B37;
+  margin-bottom: 10%;
   padding: auto;
   padding-top: 100px;
 }
 
 .box {
-  width: 500px;
-  height: 500px;
+  width: 1500px;
+  /* height: 500px; */
   background-color: white;
   text-align: center;
   padding: 60px;
@@ -34,6 +35,8 @@ body {
   height: 60px;
   width: 100%;
   padding-left: 10px;
+  border-radius: 10px;
+  border: #a79693 1px solid;
 }
 .form-content__input--submit {
   margin-top: 20px;
@@ -44,3 +47,13 @@ body {
   color: white;
   border: none;
 }/*# sourceMappingURL=sign.css.map */
+
+
+/* ------------------------------ */
+
+.input_pictures{
+  padding-top: 15%;
+  padding-bottom: 15%;
+  background-color: #a7969382;
+  border-radius: 10px;
+}
