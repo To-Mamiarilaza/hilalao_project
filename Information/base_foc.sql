@@ -8,7 +8,7 @@ CREATE TABLE identity_card (
 CREATE TABLE customer (
 	id_customer SERIAL PRIMARY KEY,
 	name VARCHAR(100) NOT NULL,
-	customer_id_card INT,
+	customer_id_card VARCHAR(20),
 	profile_picture VARCHAR(30) NOT NULL,
 	address VARCHAR(50) NOT NULL,
 	phone_numbers VARCHAR(13) NOT NULL,
