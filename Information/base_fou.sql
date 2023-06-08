@@ -54,7 +54,7 @@ INSERT INTO terrain VALUES
 ;
 
 -- view --
--- info terrai --
+-- info terrain --
 CREATE OR REPLACE VIEW v_info_terrain AS 
 	SELECT terrain_parameter.terrain_name, terrain_parameter.category, terrain_parameter.terrain_type, terrain.ratings, hourly_rate.price_per_hour,
 	terrain.reservation_percentage, coordinate.longitude, coordinate.latitude, hourly_rate.start_time, hourly_rate.end_Time
